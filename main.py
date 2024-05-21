@@ -1,15 +1,19 @@
 from flask import Flask, request, jsonify
 import requests
+from flask_cors import CORS
 from urllib.parse import quote
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/', methods=['GET'])
 def home():
+
     return jsonify({"message": "hello"}), 200
 
 @app.route('/generate_image', methods=['POST'])
 def generate_image():
+    print("hello")
     url = "https://api.limewire.com/api/image/generation"
     prompt = request.json.get('prompt', '')
 
