@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import requests
+from urllib.parse import quote
 
 app = Flask(__name__)
 
@@ -32,4 +33,4 @@ def generate_image():
         return jsonify({"error": "Failed to generate image"}), response.status_code
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000,debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
